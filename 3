@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Sounds</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #scrollButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #soundButton {
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="soundButton" onclick="playSound('no')">Click Me for 'No' Sound</button>
+    <button id="scrollButton" onclick="scrollToTop()">Scroll to Sound Button</button>
+
+    <audio id="noSound" src="no_sound.mp3"></audio>
+    <audio id="yesSound" src="yes_sound.mp3"></audio>
+
+    <script>
+        function playSound(soundType) {
+            if (soundType === 'no') {
+                document.getElementById('noSound').play();
+            } else if (soundType === 'yes') {
+                document.getElementById('yesSound').play();
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            playSound('yes');
+        }
+    </script>
+</body>
+</html>
